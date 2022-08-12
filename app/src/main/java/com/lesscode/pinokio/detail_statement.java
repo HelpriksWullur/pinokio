@@ -40,6 +40,8 @@ public class detail_statement extends AppCompatActivity {
             TextView txt_verified_by = findViewById(R.id.txt_verified_by);
             TextView txt_trusted_by = findViewById(R.id.txt_trusted_by);
             TextView txt_not_trusted_by = findViewById(R.id.txt_not_trusted_by);
+            TextView txt_no_comment = findViewById(R.id.no_comment);
+            LinearLayout ll_comments = findViewById(R.id.col_comments);
 
             LinearLayout form_opinion = findViewById(R.id.form_opinion);
             LinearLayout ll_options = findViewById(R.id.ll_options);
@@ -142,6 +144,11 @@ public class detail_statement extends AppCompatActivity {
 
                     txt_trusted_by.setText(String.format("Trusted by %s people", trusted_by));
                     txt_not_trusted_by.setText(String.format("Not trusted by %s people", not_trusted_by));
+
+                    if (snapshot.child("all_statements").child(id).child("comments").getValue().toString().isEmpty()) {
+                        ll_comments.setVisibility(View.GONE);
+                        txt_no_comment.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 @Override
