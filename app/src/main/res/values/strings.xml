@@ -1,0 +1,12 @@
+<resources>
+    <!-- all layout -->
+    <string name="app_name">Pinokio</string>
+    <!--  activity_splash_screen  -->
+    <string name="app_desc">there can be no hoax between us</string>
+    <!--  fragment_frag_beranda  -->
+    <string name="txt_verified">Verified</string>
+    <string name="txt_not_verified">Not Verified</string>
+    <string name="txt_my_posts">My Posts</string>
+    <!--  fragment_frag_buat  -->
+    <string name="txt_hint_stat">Type your statement here…</string>
+</resources>

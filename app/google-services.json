@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "577737169171",
+    "firebase_url": "https://pinokio-41c0a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pinokio-41c0a",
+    "storage_bucket": "pinokio-41c0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577737169171:android:7e257c1a7dea8064ede2e6",
+        "android_client_info": {
+          "package_name": "com.lesscode.pinokio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577737169171-en7q8mruvri4tgprob48ja78ne3re29l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8wptupBl88sdO18RvqAZlC5wwfTa18ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577737169171-en7q8mruvri4tgprob48ja78ne3re29l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
