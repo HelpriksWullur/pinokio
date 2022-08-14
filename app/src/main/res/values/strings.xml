@@ -12,4 +12,23 @@
     <string name="txt_my_posts">My Posts</string>
     <!--  fragment_frag_buat  -->
     <string name="txt_hint_stat">Type your statement here…</string>
+    <!--  activity_detail_statements  -->
+    <string name="txt_user_stat">User statement\.\.\.</string>
+    <string name="txt_user_verified">Verified by User as a FACT</string>
+    <string name="txt_trusted_by">Trusted by 0 people</string>
+    <string name="txt_not_trusted_by">Not trusted by 0 people</string>
+    <string name="txt_comment_hint">Your Comment \.\.\. (optional)</string>
+    <string name="txt_user_comment_q">Your Opinion?</string>
+    <string name="txt_owner_option">Option as a owner :</string>
+    <string name="txt_delete">Delete</string>
+    <string name="txt_trust">Trust</string>
+    <string name="txt_not_trust">Not trust</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="desc_profile_photo">User\'s photo profile</string>
+    <string name="txt_user_name">User</string>
+    <string name="txt_user_comment">Comment</string>
+    <string name="txt_user_opinion">Not trust</string>
+    <string name="lbl_comments">What\'s people say</string>
+    <string name="txt_already_choose">You already choose to trust</string>
+    <string name="txt_no_comments">no comments yet</string>
 </resources>
