@@ -4,8 +4,10 @@
     <!--  activity_splash_screen  -->
     <string name="app_desc">there can be no hoax between us</string>
     <!--  activity_login_screen  -->
-    <string name="lbl_btn_login">\ Sign in with Google</string>
+    <string name="lbl_btn_login">\ Lanjutkan dengan Google</string>
     <string name="lbl_login_to">Login to</string>
+    <string name="txt_create">Buat akun</string>
+    <string name="txt_or">\ \ atau\ \ </string>
     <!--  fragment_frag_beranda  -->
     <string name="txt_verified">Verified</string>
     <string name="txt_not_verified">Not Verified</string>

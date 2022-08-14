@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 @SuppressWarnings("SpellCheckingInspection")
 public class login_screen extends AppCompatActivity {
     TextView txt_login;
-    Button btn_signin;
+    LinearLayout ll_divider;
+    Button btn_signin, btn_create;
 
     FirebaseAuth mAuth;
 
@@ -74,11 +76,20 @@ public class login_screen extends AppCompatActivity {
         btn_signin = findViewById(R.id.btn_signin);
         txt_login = findViewById(R.id.txt_login);
 
+        ll_divider = findViewById(R.id.divider);
+        btn_create = findViewById(R.id.btn_create);
+
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_anim);
         txt_login.startAnimation(animation);
 
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move_in_anim);
         btn_signin.startAnimation(animation1);
+
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_anim_sec);
+        ll_divider.startAnimation(animation2);
+
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_anim_th);
+        btn_create.startAnimation(animation3);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
