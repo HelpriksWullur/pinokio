@@ -53,44 +53,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <LinearLayout
-        android:id="@+id/divider"
+    <TextView
+        android:id="@+id/or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp"
+        android:text="@string/txt_or"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/btn_signin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center"
-        >
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            app:dividerColor="@color/grey"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_or"
-            />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            app:dividerColor="@color/grey"
-            />
-
-    </LinearLayout>
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_create"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/rounded_corner"
-        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/or"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="@string/txt_create"
