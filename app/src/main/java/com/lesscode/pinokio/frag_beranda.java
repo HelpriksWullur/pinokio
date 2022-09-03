@@ -94,11 +94,10 @@ public class frag_beranda extends Fragment {
                     if (!snapshot1.getKey().equals("detail")) {
                         boolean is_verified = !snapshot1.child("verified_by").getValue().toString().equals("");
                         String verificator = "null", content, num_trusted, num_not_trusted, hoaxORfact = "null";
-                        final TextView text = new TextView(getActivity().getApplicationContext());
-                        final TextView text1 = new TextView(getActivity().getApplicationContext());
-                        final TextView text2 = new TextView(getActivity().getApplicationContext());
-                        final TextView text3 = new TextView(getActivity().getApplicationContext());
-                        final TextView text4 = new TextView(getActivity().getApplicationContext());
+                        final TextView pstContent = new TextView(getActivity().getApplicationContext());
+                        final TextView pstVerifiedBy = new TextView(getActivity().getApplicationContext());
+                        final TextView pstTrustedBy = new TextView(getActivity().getApplicationContext());
+                        final TextView pstNotTrustedBy = new TextView(getActivity().getApplicationContext());
 
                         if (is_verified) {
                             Toast.makeText(getActivity().getApplicationContext(), "Ada yang terverifikasi", Toast.LENGTH_SHORT).show();
@@ -119,8 +118,8 @@ public class frag_beranda extends Fragment {
 
                         // inisialisasi
                         int dens = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().density;
-                        text.setText(content);
-                        text.setOnClickListener(new View.OnClickListener() {
+                        pstContent.setText(content);
+                        pstContent.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(getActivity().getApplicationContext(), detail_statement.class);
@@ -129,35 +128,33 @@ public class frag_beranda extends Fragment {
                                 getActivity().overridePendingTransition(0, 0);
                             }
                         });
-                        text.setBackground(getActivity().getApplicationContext().getDrawable(R.drawable.rounded_corner));
-                        text.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
-                        text.setTextSize((float) (12 / 0.75));
+                        pstContent.setBackground(getActivity().getApplicationContext().getDrawable(R.drawable.rounded_corner));
+                        pstContent.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
+                        pstContent.setTextSize((float) (12 / 0.75));
 
                         if (is_verified) {
-                            text1.setText(String.format("Verified by %s as a %s", verificator, hoaxORfact));
-                            text1.setTextSize((float) (12 / 0.75));
-                            text1.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
+                            pstVerifiedBy.setText(String.format("Verified by %s as a %s", verificator, hoaxORfact));
+                            pstVerifiedBy.setTextSize((float) (12 / 0.75));
+                            pstVerifiedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
                         }
 
-                        text2.setText(String.format("Trusted by %s", num_trusted));
-                        text2.setTextSize((float) (12 / 0.75));
-                        text2.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
+                        pstTrustedBy.setText(String.format("Trusted by %s", num_trusted));
+                        pstTrustedBy.setTextSize((float) (12 / 0.75));
+                        pstTrustedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
 
-                        text3.setText(String.format("Not trusted by %s", num_not_trusted));
-                        text3.setTextSize((float) (12 / 0.75));
-                        text3.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
+                        pstNotTrustedBy.setText(String.format("Not trusted by %s", num_not_trusted));
+                        pstNotTrustedBy.setTextSize((float) (12 / 0.75));
+                        pstNotTrustedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
 
                         if (is_verified) {
-                            list_verified.addView(text);
-                            list_verified.addView(text1);
-                            list_verified.addView(text2);
-                            list_verified.addView(text3);
-                            list_verified.addView(text4);
+                            list_verified.addView(pstContent);
+                            list_verified.addView(pstVerifiedBy);
+                            list_verified.addView(pstTrustedBy);
+                            list_verified.addView(pstNotTrustedBy);
                         } else {
-                            list_not_verified.addView(text);
-                            list_not_verified.addView(text2);
-                            list_not_verified.addView(text3);
-                            list_not_verified.addView(text4);
+                            list_not_verified.addView(pstContent);
+                            list_not_verified.addView(pstTrustedBy);
+                            list_not_verified.addView(pstNotTrustedBy);
                         }
 
 //                        if (snapshot1.child("posted_by").getValue().toString()
