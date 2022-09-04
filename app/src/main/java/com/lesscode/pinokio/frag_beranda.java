@@ -93,31 +93,17 @@ public class frag_beranda extends Fragment {
                 for (DataSnapshot snapshot1 : snapshot.child("all_statements").getChildren()) {
                     if (!snapshot1.getKey().equals("detail")) {
                         boolean is_verified = !snapshot1.child("verified_by").getValue().toString().equals("");
-                        String verificator = "null", content, num_trusted, num_not_trusted, hoaxORfact = "null";
+                        String verificator, content, num_trusted, num_not_trusted, hoax_or_fact;
                         final TextView pstContent = new TextView(getActivity().getApplicationContext());
                         final TextView pstVerifiedBy = new TextView(getActivity().getApplicationContext());
                         final TextView pstTrustedBy = new TextView(getActivity().getApplicationContext());
                         final TextView pstNotTrustedBy = new TextView(getActivity().getApplicationContext());
-
-                        if (is_verified) {
-                            Toast.makeText(getActivity().getApplicationContext(), "Ada yang terverifikasi", Toast.LENGTH_SHORT).show();
-                            verificator = snapshot1.child("verified_by").getValue().toString();
-
-                            boolean is_hoax = Boolean.parseBoolean(Objects.requireNonNull(snapshot1.child("is_hoax").getValue()).toString());
-
-                            if (is_hoax) {
-                                hoaxORfact = "HOAX";
-                            } else {
-                                hoaxORfact = "FACT";
-                            }
-                        }
 
                         content = snapshot1.child("content").getValue().toString();
                         num_trusted = snapshot1.child("trusted_by").getValue().toString();
                         num_not_trusted = snapshot1.child("not_trusted_by").getValue().toString();
 
                         // inisialisasi
-                        int dens = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().density;
                         pstContent.setText(content);
                         pstContent.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -128,15 +114,11 @@ public class frag_beranda extends Fragment {
                                 getActivity().overridePendingTransition(0, 0);
                             }
                         });
+
+                        int dens = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().density;
                         pstContent.setBackground(getActivity().getApplicationContext().getDrawable(R.drawable.rounded_corner));
                         pstContent.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
                         pstContent.setTextSize((float) (12 / 0.75));
-
-                        if (is_verified) {
-                            pstVerifiedBy.setText(String.format("Verified by %s as a %s", verificator, hoaxORfact));
-                            pstVerifiedBy.setTextSize((float) (12 / 0.75));
-                            pstVerifiedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
-                        }
 
                         pstTrustedBy.setText(String.format("Trusted by %s", num_trusted));
                         pstTrustedBy.setTextSize((float) (12 / 0.75));
@@ -147,6 +129,16 @@ public class frag_beranda extends Fragment {
                         pstNotTrustedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
 
                         if (is_verified) {
+                            verificator = snapshot1.child("verified_by").getValue().toString();
+
+                            boolean is_hoax = Boolean.parseBoolean(Objects.requireNonNull(snapshot1.child("is_hoax").getValue()).toString());
+
+                            hoax_or_fact = (is_hoax)?"HOAX":"FACT";
+
+                            pstVerifiedBy.setText(String.format("Verified by %s as a %s", verificator, hoax_or_fact));
+                            pstVerifiedBy.setTextSize((float) (12 / 0.75));
+                            pstVerifiedBy.setPadding(10 * dens, 5 * dens, 7 * dens, 5 * dens);
+
                             list_verified.addView(pstContent);
                             list_verified.addView(pstVerifiedBy);
                             list_verified.addView(pstTrustedBy);
